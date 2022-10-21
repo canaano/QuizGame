@@ -70,7 +70,7 @@ availableQuestions.splice(questionIndex, 1);
 
 acceptingAnswers = true;
 };
-
+// correspond answers to questions 
 choices.forEach(choice => {
     choice.addEventListener('click', e => {
         if (!acceptingAnswers) return;
