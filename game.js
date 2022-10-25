@@ -93,7 +93,7 @@ getNewQuestions = () => {
     
   
   if (valueToApply === "correct"){
-    incrementScore(Correct_Points)
+    incrementScore(Correct_Bonus)
   }
   
     setTimeout( () => {
