@@ -57,6 +57,10 @@ startGame = () => {
 };
 // logic for getting random questions
 getNewQuestion = () => {
+
+    if (availableQuestions.length === 0 || questionCounter.length); {
+        return window.location.assign('/end.html');
+    }
    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
    currentQuestion = availableQuestions[questionIndex];
    question.innerText = currentQuestion.question;
@@ -66,6 +70,7 @@ getNewQuestion = () => {
     choice.innerText = currentQuestion["choice" + number];
    });
 
+// remove questions that have been asked   
 availableQuestions.splice(questionIndex, 1);
 
 acceptingAnswers = true;
@@ -85,3 +90,8 @@ choices.forEach(choice => {
 
 
 startGame();
+
+
+// Quiz will begin with Lets Play
+
+// 
