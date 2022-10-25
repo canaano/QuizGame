@@ -45,7 +45,7 @@ let questions = [
 
 // What are my Constants
 
-const Correct_Bonues = 10;
+const Correct_Bonus = 10;
 const Max_Questions = 4;
 
 startGame = () => {
@@ -53,41 +53,59 @@ startGame = () => {
     availableQuestions = [...questions];
     score = 0;
     console.log(availableQuestions);
-    getNewQuestion();
+    getNewQuestions();
 };
 // logic for getting random questions
-getNewQuestion = () => {
-
-    if (availableQuestions.length === 0 || questionCounter.length); {
-        return window.location.assign('/end.html');
+getNewQuestions = () => {
+    // returns to high score page 
+    if( availableQuestions.length === 0 || questionCounter > Max_Questions) {
+      localStorage.setItem('recentScore', score);
+      return window.location.assign("./results.html")
     }
-   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
-   currentQuestion = availableQuestions[questionIndex];
-   question.innerText = currentQuestion.question;
-
-   choices.forEach( choice => {
-    const number = choice.dataset['number'];
-    choice.innerText = currentQuestion["choice" + number];
-   });
-
-// remove questions that have been asked   
-availableQuestions.splice(questionIndex, 1);
-
-acceptingAnswers = true;
-};
-// correspond answers to questions 
-choices.forEach(choice => {
-    choice.addEventListener('click', e => {
-        if (!acceptingAnswers) return;
-
-        acceptingAnswers = false;
-        const selectedChoice = e.target;
-        const selectedAnswer = selectedchoice.dataset['number'];
-
-        getNewQuestion();
-});
-});
-
+    // This will increase question counter until max number of questions is reached and if it is not at max number of questions will get a new question.
+    questionCounter ++;
+    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+    currentQuestion = availableQuestions[questionIndex];
+    question.innerText = currentQuestion.question;
+  
+    choices.forEach(choice => {
+      const number = choice.dataset["number"];
+      choice.innerText = currentQuestion["choice" + number];
+    });
+  //removes a question that was already asked
+    availableQuestions.splice(questionIndex, 1);
+  
+    acceptingAnswers = true;
+  
+  };
+  // listens for click to log which "choice" was picked
+   choices.forEach(choice => {
+   choice.addEventListener("click", e => {
+    if (!acceptingAnswers) return;
+    acceptingAnswers = false;
+    const selectedChoice = e.target;
+    const selectedAnswer = selectedChoice.dataset["number"];
+   // this applies if selected choice was correct or incorrect and if incorrect deducts time.
+   var valueToApply = "incorrect";
+    if ( selectedAnswer == currentQuestion.answer){
+      valueToApply = "correct";
+    };
+    
+  
+  if (valueToApply === "correct"){
+    incrementScore(Correct_Points)
+  }
+  
+    setTimeout( () => {
+    getNewQuestions();
+    }, 1000);
+  });
+  });
+  
+  incrementScore = num => {
+    score += num;
+    console.log(score);
+  };
 
 startGame();
 
