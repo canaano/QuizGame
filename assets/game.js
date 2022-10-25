@@ -48,6 +48,26 @@ let questions = [
 const Correct_Bonus = 10;
 const Max_Questions = 4;
 
+// Timing logic for endGame
+endGame() {
+  if (timeLeft <=0) {
+ localStorage.setItem('recentScore', score);
+ return.window.location.assign("./results.html")   
+  };
+};
+
+// Timer fuction for overall game
+startTimer() {
+  timerElement.testContent = timeleft;
+  timer = setInterval(() => {
+    timeLeft --;
+  timerElement.textConent = timeLeft;
+  if (timeLeft == 0)
+  clearInterval(timer);
+  endGame();  
+  }, 1000);
+};
+
 startGame = () => {
     questionCounter = 0;
     availableQuestions = [...questions];
@@ -62,7 +82,7 @@ getNewQuestions = () => {
       localStorage.setItem('recentScore', score);
       return window.location.assign("./results.html")
     }
-    // This will increase question counter until max number of questions is reached and if it is not at max number of questions will get a new question.
+    // Make sure all questions are asked
     questionCounter ++;
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
@@ -72,7 +92,7 @@ getNewQuestions = () => {
       const number = choice.dataset["number"];
       choice.innerText = currentQuestion["choice" + number];
     });
-  //removes a question that was already asked
+  //removes previous question
     availableQuestions.splice(questionIndex, 1);
   
     acceptingAnswers = true;
@@ -85,7 +105,7 @@ getNewQuestions = () => {
     acceptingAnswers = false;
     const selectedChoice = e.target;
     const selectedAnswer = selectedChoice.dataset["number"];
-   // this applies if selected choice was correct or incorrect and if incorrect deducts time.
+   // determine if answer is correct
    var valueToApply = "incorrect";
     if ( selectedAnswer == currentQuestion.answer){
       valueToApply = "correct";
@@ -108,6 +128,8 @@ getNewQuestions = () => {
   };
 
 startGame();
+startTimer();
+endGame();
 
 
 // Quiz will begin with Lets Play
