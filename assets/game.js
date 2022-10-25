@@ -6,6 +6,8 @@ var acceptingAnswers = false;
 var score = 0;
 var questionCounter = 0;
 var availableQuestions = [];
+var timerElement = document.querySelector(".timer-count");
+var startButton = document.querySelector(".start-button");
 
 // Come up with questions for the quiz
 let questions = [
@@ -49,15 +51,15 @@ const Correct_Bonus = 10;
 const Max_Questions = 4;
 
 // Timing logic for endGame
-endGame() {
+function endGame() {
   if (timeLeft <=0) {
  localStorage.setItem('recentScore', score);
- return.window.location.assign("./results.html")   
+ return window.location.assign("./results.html")   
   };
 };
 
 // Timer fuction for overall game
-startTimer() {
+function startTimer() {
   timerElement.testContent = timeleft;
   timer = setInterval(() => {
     timeLeft --;
@@ -68,7 +70,7 @@ startTimer() {
   }, 1000);
 };
 
-startGame = () => {
+function startGame() {
     questionCounter = 0;
     availableQuestions = [...questions];
     score = 0;
