@@ -98,7 +98,7 @@ getNewQuestions = () => {
   
     setTimeout( () => {
     getNewQuestions();
-    }, 1000);
+    }, 1);
   });
   });
   
