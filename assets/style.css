@@ -44,14 +44,18 @@ h3 {
 
 .container {
  
-    width: 100vw;
-    height: 100vh;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     max-width: 80rem;
     margin: 0 auto; 
+    border: 5px solid royalblue;
+    padding-top: 100px;
+
 }
 
 .container > * {
@@ -92,12 +96,11 @@ h3 {
     text-decoration: none;
     color: blue;
     background-color: white;
-    border-radius: 90;
+    border-radius: 15px;
 }
 
 .btn:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
     transform: translateY(-.1rem);
     transition: transform 0.125ms;
 }
