@@ -15,6 +15,10 @@ https://canaano.github.io/QuizGame/
 Followed tutorial on YouTube at: (this was way more difficult than i anticipted)
 https://www.youtube.com/watch?v=icb9AUBeznQ
 
+## Screenshot
+
+![HW-1 Screenshot](./assets/Canaan%20Quiz%20Game-1.png)
+
 ## User Story
 
 ```
