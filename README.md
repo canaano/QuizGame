@@ -12,7 +12,7 @@ This week’s coursework will equip you with all the skills you need to succeed 
 
 https://canaano.github.io/QuizGame/
 
-Followed tutorial on YouTube at: (this was way more difficult than i anticipted)
+Followed tutorial on YouTube at: (this was way more difficult than i anticipted and abandoned some and got help from group members)
 https://www.youtube.com/watch?v=icb9AUBeznQ
 
 ## Screenshot
