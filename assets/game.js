@@ -135,5 +135,3 @@ endGame();
 
 
 // Quiz will begin with Lets Play
-
-// 
