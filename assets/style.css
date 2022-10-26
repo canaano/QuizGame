@@ -1,5 +1,5 @@
 :root {
-    background-color: azure;
+    background-color: rgba(86, 185, 235, 0.5);
     font-size: 62.5%;
 }
 /* Game box styling */
@@ -91,6 +91,7 @@ h3 {
     text-decoration: none;
     color: blue;
     background-color: white;
+    border-radius: 90;
 }
 
 .btn:hover {
